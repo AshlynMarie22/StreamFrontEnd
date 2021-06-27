@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, Box, Container } from '@chakra-ui/react';
+import { Center, Box, Container, Button } from '@chakra-ui/react';
 
 const HomePage = () => {
   return (
@@ -20,6 +20,13 @@ const HomePage = () => {
               experiences have a consistent look and feel, not just in our
               design specs, but in production
             </Container>
+
+            <Button variant="outline" spacing="6" borderColor="#707070">
+              Signup
+            </Button>
+            <Button variant="outline" spacing="6" borderColor="#707070">
+              Login
+            </Button>
           </Center>
         </Box>
       </Center>

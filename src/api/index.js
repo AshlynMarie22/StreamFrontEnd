@@ -1,32 +1,17 @@
-import ky from "ky";
+import ky from 'ky';
 
-const baseURL = "http://localhost:8143";
+const baseURL = 'http://localhost:8143';
 
-const api = {
-  /**
-   * Get all recipes.
-   * @param {string} [path = 'recipes] - API path
-   * @returns {Promise} Promise object represents array of recipes
-   */
-  index(path = "user") {
-    return ky.get(`${baseURL}/${path}`).json();
-  },
+export const index = ({ type, value }) =>
+  ky.get(`${baseURL}/${type}/${value}`).json();
 
-  show(id, path = "user") {
-    return ky.get(`${baseURL}/${path}/${id}`).json();
-  },
+/**
+ * Update a customer
+ * @param {Object} payload - customer
+ * @return
+ */
+export const update = payload => ky.put(`${baseURL}`, { json: payload });
 
-  update(payload, path = "user") {
-    return ky.put(`${baseURL}/${path}`, { json: payload });
-  },
+export const add = payload => ky.post(`${baseURL}`, { json: payload });
 
-  create(payload, path = "user") {
-    return ky.post(`${baseURL}/${path}`, { json: payload }).json();
-  },
-
-  delete(id, path = "user") {
-    return ky.delete(`${baseURL}/${path}/${id}`);
-  },
-};
-
-export default api;
+export const deleteMeetup = id => ky.delete(`${baseURL}/${id}`);
