@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from '@chakra-ui/react';
 import api from 'api';
-import MeetupForm from 'components/Forms/CreateMeetupForm/CreateMeetupForm';
+import MeetupForm from 'components/Forms/CreateMeetupForm/MeetupForm';
 // import MeetupTable from 'components/Forms/CreateMeetupForm/EditableText'
 
 import { useMutation, useQuery, useQueryClient } from 'react-query';

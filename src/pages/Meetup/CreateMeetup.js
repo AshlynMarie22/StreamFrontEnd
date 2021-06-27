@@ -1,83 +1,78 @@
+import { ChakraProvider, theme } from '@chakra-ui/react';
+import { useState } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import {
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  VisuallyHidden,
-  RadioGroup,
-  HStack,
-  Radio,
-  Box,
-} from '@chakra-ui/react';
-import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
+  AddMeetup,
+  Meetups,
+  MeetupFilters,
+} from 'components/Forms/CreateMeetupForm';
 
-const MeetupForm = forwardRef(function AddMeetupForm({ handler }, ref) {
+const qc = new QueryClient();
+
+function CreateMeetup() {
+  // TODO: Use `useReducer`
+  const [currentFilter, setCurrentFilter] = useState({});
+
+  function handleChange(e) {
+    setCurrentFilter(() => ({
+      type: e.target.name,
+      value: e.target.value.toLowerCase(),
+    }));
+  }
+
   return (
-    <>
-      <Box bgColor="#F8FCFD" w={1000} border="1px" borderColor="#707070" m={8}>
-        <Box m={8}>
-          <form
-            className="flex flex-col gap-2 my-2"
-            onSubmit={handler}
-            ref={ref}
-          >
-            <FormControl id="meetup-title" isRequired>
-              <FormLabel>Title</FormLabel>
-
-              <Input placeholder="Meetup Name" size="xs" name="title" />
-            </FormControl>
-
-            <FormControl id="meetup-date">
-              <FormLabel>Date</FormLabel>
-
-              <Input placeholder="Meetup Date" size="xs" name="date" />
-            </FormControl>
-
-            <FormControl id="meetup-time">
-              <FormLabel>Time</FormLabel>
-              <Input placeholder="Meetup Time" size="xs" name="time" />
-            </FormControl>
-
-            <FormControl id="meetup-link">
-              <FormLabel>Link</FormLabel>
-
-              <Input placeholder="Meetup Link" size="xs" name="link" />
-            </FormControl>
-
-            <FormControl id="category" isRequired>
-              <FormLabel>Category</FormLabel>
-              <RadioGroup>
-                <HStack spacing="24px">
-                  <Radio value="Team Building" name="category">
-                    Team Building
-                  </Radio>
-                  <Radio value="Educational" name="category">
-                    Educational
-                  </Radio>
-                  <Radio value="Happy Hour" name="category">
-                    Happy Hour
-                  </Radio>
-                </HStack>
-              </RadioGroup>
-            </FormControl>
-
-            <FormControl id="meetup-description">
-              <FormLabel>Description</FormLabel>
-
-              <Input placeholder="Description" size="xs" name="description" />
-            </FormControl>
-
-            <Button variant="outline" spacing="6" borderColor="#707070">
-              Done
-            </Button>
-          </form>
-        </Box>
-      </Box>
-    </>
+    <ChakraProvider theme={theme}>
+      <QueryClientProvider client={qc}>
+        <MeetupFilters handler={handleChange} />
+        {currentFilter.type ? <Meetups currentFilter={currentFilter} /> : null}
+        <AddMeetup />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </ChakraProvider>
   );
-});
+}
 
-MeetupForm.propTypes = { handler: PropTypes.func.isRequired };
+export default CreateMeetup;
 
-export default MeetupForm;
+// import React, { Component } from 'react';
+// import { Text } from '@chakra-ui/react';
+// import api from 'api';
+// import MeetupForm from 'components/Forms/CreateMeetupForm/MeetupForm';
+// import MeetupTable from 'components/Forms/CreateMeetupForm/Meetups'
+
+// import { useMutation, useQuery, useQueryClient } from 'react-query';
+
+// const fetchMeetups = async () => await api.index();
+
+// function CreateMeetup() {
+//   const { status, data, error } = useQuery('meetup', fetchMeetups);
+
+//   const addMeetup = useMutation(payload => api.create(payload));
+
+//   const queryClient = useQueryClient();
+
+//   const handleSubmit = event => {
+//     event.preventDefault();
+//     addMeetup.mutate(Object.fromEntries(new FormData(event.target)), {
+//       onSuccess: () => {
+//         queryClient.invalidateQueries('meetup');
+//       },
+//     });
+//   };
+
+//   switch (status) {
+//     case 'loading':
+//       return <Text>Loading...</Text>;
+//     case 'error':
+//       return <Text color="tomato">{error.message}</Text>;
+//     default:
+//       return (
+//         <main className="container mx-auto">
+//           <MeetupTable meetup={data} />
+//           <MeetupForm handler={handleSubmit} />
+//         </main>
+//       );
+//   }
+// }
+// export default CreateMeetup;
