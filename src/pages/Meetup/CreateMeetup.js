@@ -1,31 +1,31 @@
 import { ChakraProvider, theme } from '@chakra-ui/react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import {
   AddMeetup,
-  Meetups,
-  MeetupFilters,
+  // Meetups,
+  // MeetupFilters,
 } from 'components/Forms/CreateMeetupForm';
 
 const qc = new QueryClient();
 
 function CreateMeetup() {
   // TODO: Use `useReducer`
-  const [currentFilter, setCurrentFilter] = useState({});
+  // const [ setCurrentFilter] = useState({});
 
-  function handleChange(e) {
-    setCurrentFilter(() => ({
-      type: e.target.name,
-      value: e.target.value.toLowerCase(),
-    }));
-  }
+  // function handleChange(e) {
+  //   setCurrentFilter(() => ({
+  //     type: e.target.name,
+  //     value: e.target.value.toLowerCase(),
+  //   }));
+  // }
 
   return (
     <ChakraProvider theme={theme}>
       <QueryClientProvider client={qc}>
-        <MeetupFilters handler={handleChange} />
-        {currentFilter.type ? <Meetups currentFilter={currentFilter} /> : null}
+        {/* <MeetupFilters handler={handleChange} />
+        {currentFilter.type ? <Meetups currentFilter={currentFilter} /> : null} */}
         <AddMeetup />
         <ReactQueryDevtools />
       </QueryClientProvider>

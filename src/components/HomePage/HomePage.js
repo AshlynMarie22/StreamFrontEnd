@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, Box, Container, Button } from '@chakra-ui/react';
+import { Center, Box, Container, Button, SimpleGrid } from '@chakra-ui/react';
 
 const HomePage = () => {
   return (
@@ -8,25 +8,54 @@ const HomePage = () => {
         <Box
           bgColor="#F8FCFD"
           w={1000}
-          h={60}
           border="1px"
           borderColor="#707070"
+          m={33}
         >
           <Center>
-            <Container m={10}>
-              There are many benefits to a joint design and development system.
-              Not only does it bring benefits to the design team, but it also
-              brings benefits to engineering teams. It makes sure that our
-              experiences have a consistent look and feel, not just in our
-              design specs, but in production
-            </Container>
-
-            <Button variant="outline" spacing="6" borderColor="#707070">
-              Signup
-            </Button>
-            <Button variant="outline" spacing="6" borderColor="#707070">
-              Login
-            </Button>
+            <SimpleGrid columns={1}>
+              <Container mt={10} mb={5}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </Container>
+              <Center>
+                <Box>
+                  <Button
+                    variant="outline"
+                    spacing="6"
+                    borderColor="#707070"
+                    m={2}
+                  >
+                    Signup
+                  </Button>
+                </Box>
+              </Center>
+              <Center>
+                <Box>
+                  <Button
+                    variant="outline"
+                    spacing="6"
+                    borderColor="#707070"
+                    mt={2}
+                    mb={5}
+                  >
+                    Login
+                  </Button>
+                </Box>
+              </Center>
+            </SimpleGrid>
           </Center>
         </Box>
       </Center>

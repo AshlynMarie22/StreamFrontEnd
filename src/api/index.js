@@ -1,12 +1,12 @@
 import ky from 'ky';
 
-const baseURL = 'http://localhost:8143';
+const baseURL = 'http://localhost:8143/meetup';
 
 export const index = ({ type, value }) =>
   ky.get(`${baseURL}/${type}/${value}`).json();
 
 /**
- * Update a customer
+ * Update a meetup
  * @param {Object} payload - customer
  * @return
  */
