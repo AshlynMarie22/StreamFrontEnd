@@ -1,13 +1,11 @@
 import {
   Button,
-  Container,
   FormControl,
   FormLabel,
   Input,
   RadioGroup,
   HStack,
   Radio,
-  VStack,
   Box,
 } from '@chakra-ui/react';
 import { add } from 'api';
@@ -18,7 +16,7 @@ function AddMeetup() {
 
   const mutation = useMutation(newMeetup => add(newMeetup), {
     onSuccess: () => {
-      qc.invalidateQueries('customers');
+      qc.invalidateQueries('meetup');
     },
   });
 
@@ -37,19 +35,19 @@ function AddMeetup() {
             {/* <VStack spacing="24px">
             <HStack spacing="24px"> */}
 
-            <FormControl id="meetup-title" isRequired>
+            <FormControl id="title" isRequired>
               <FormLabel>Meetup Title</FormLabel>
 
               <Input placeholder="Title" name="title" />
             </FormControl>
 
-            <FormControl id="meetup-date" isRequired>
+            <FormControl id="date" isRequired>
               <FormLabel>Meetup Date</FormLabel>
 
               <Input placeholder="Meetup Date" name="date" />
             </FormControl>
 
-            <FormControl id="meetup-time" isRequired>
+            <FormControl id="time" isRequired>
               <FormLabel>Meetup Time</FormLabel>
 
               <Input placeholder="Meetup Time" name="time" />
@@ -80,7 +78,7 @@ function AddMeetup() {
               </RadioGroup>
             </FormControl>
 
-            <FormControl id="meetup-description">
+            <FormControl id="description">
               <FormLabel>Description</FormLabel>
 
               <Input placeholder="Description" size="xs" name="description" />

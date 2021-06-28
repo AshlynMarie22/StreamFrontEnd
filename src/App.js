@@ -1,5 +1,6 @@
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import HomePage from 'pages/Home/Home';
 import CreateMeetup from 'pages/Meetup/CreateMeetup';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -10,13 +11,17 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <HomePage />
-        <CreateMeetup />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </ChakraProvider>
+    <>
+      <ChakraProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/createmeetup" component={CreateMeetup} />
+          </BrowserRouter>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </ChakraProvider>
+    </>
   );
 }
 

@@ -86,9 +86,9 @@ function Meetups({ currentFilter }) {
                 title,
                 date,
                 time,
+                description,
                 link,
                 category,
-                description,
               }) => (
                 <Tr key={meetupId}>
                   <Td>
