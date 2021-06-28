@@ -13,13 +13,16 @@ function MeetupFilters({ handler }) {
         >
           <option value="">All</option>
           <option name="teambuilding" value="teambuilding">
-            Team Building
+            {/* Team Building */}
+            Coming Soon
           </option>
           <option name="educational" value="educational">
-            Educational
+            {/* Educational */}
+            Coming Soon
           </option>
           <option name="happyhour" value="happyhour">
-            Happy Hour
+            {/* Happy Hour */}
+            Coming Soon
           </option>
         </Select>
       </HStack>
