@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { add } from 'api';
 import { useMutation, useQueryClient } from 'react-query';
+import CreateAMeetup from 'components/PageTitle/CreateaMeetup';
 
 function AddMeetup() {
   const qc = useQueryClient();
@@ -61,6 +62,7 @@ function AddMeetup() {
             </Box>
           </Center>
           <Center>
+            <CreateAMeetup />
             <Box mt={20} mb={5}>
               <Heading
                 color="#707070"
