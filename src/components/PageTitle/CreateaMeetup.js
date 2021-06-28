@@ -7,10 +7,9 @@ const CreateAMeetup = () => {
       <Center>
         <Box>
           <Image
-            src="https://ashlynimages.s3.us-east-2.amazonaws.com/Stream+logo.png"
+            src="https://ashlynimages.s3.us-east-2.amazonaws.com/Create+Meetups.png"
             alt="CreateAMeetup"
-            mt={10}
-            mb={10}
+            w={700}
           />
         </Box>
       </Center>

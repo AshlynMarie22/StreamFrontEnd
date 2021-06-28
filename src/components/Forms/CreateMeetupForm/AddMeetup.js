@@ -62,14 +62,8 @@ function AddMeetup() {
             </Box>
           </Center>
           <Center>
-            <CreateAMeetup />
             <Box mt={20} mb={5}>
-              <Heading
-                color="#707070"
-                font-family="AnastasiaScriptPersonalUseRegular-KDVA"
-              >
-                Create a Meetup
-              </Heading>
+              <CreateAMeetup />
             </Box>
           </Center>
           <Box
@@ -118,13 +112,13 @@ function AddMeetup() {
                   <FormLabel>Category</FormLabel>
                   <RadioGroup>
                     <HStack spacing="24px">
-                      <Radio value="Team Building" name="category">
+                      <Radio value="teambuilding" name="category">
                         Team Building
                       </Radio>
-                      <Radio value="Educational" name="category">
+                      <Radio value="educational" name="category">
                         Educational
                       </Radio>
-                      <Radio value="Happy Hour" name="category">
+                      <Radio value="happyhour" name="category">
                         Happy Hour
                       </Radio>
                     </HStack>

@@ -160,7 +160,7 @@ function Meetups({ currentFilter }) {
 
                   <Td data-id={meetupId}>
                     <Button colorScheme="red" size="sm" onClick={handleClick}>
-                      Delete 🔥 Meetup
+                      Delete
                     </Button>
                   </Td>
                 </Tr>
