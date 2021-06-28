@@ -7,10 +7,11 @@ const Meetup = () => {
       <Center>
         <Box>
           <Image
-            src="https://ashlynimages.s3.us-east-2.amazonaws.com/Stream+logo.png"
+            src="https://ashlynimages.s3.us-east-2.amazonaws.com/Meetups.png"
             alt="Meetup"
             mt={10}
             mb={10}
+            w={550}
           />
         </Box>
       </Center>

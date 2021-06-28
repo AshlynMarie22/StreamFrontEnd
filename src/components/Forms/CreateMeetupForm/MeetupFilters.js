@@ -11,9 +11,16 @@ function MeetupFilters({ handler }) {
           name="category"
           onChange={handler}
         >
-          <option value="Team Building">Team Building</option>
-          <option value="Educational">Educational</option>
-          <option value="Happy Hour">Happy Hour</option>
+          <option value="">All</option>
+          <option name="teambuilding" value="teambuilding">
+            Team Building
+          </option>
+          <option name="educational" value="educational">
+            Educational
+          </option>
+          <option name="happyhour" value="happyhour">
+            Happy Hour
+          </option>
         </Select>
       </HStack>
     </Container>
