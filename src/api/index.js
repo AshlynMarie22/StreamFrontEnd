@@ -2,9 +2,9 @@ import ky from 'ky';
 
 const baseURL = 'http://localhost:8080/meetup';
 
-export const index = ({ value }) => ky.get(`${baseURL}/${value}`).json();
-// export const index = ({ type, value }) =>
-// ky.get(`${baseURL}/${type}/${value}`).json();
+// export const index = ({ value }) => ky.get(`${baseURL}/${value}`).json();
+export const index = ({ type, value }) =>
+  ky.get(`${baseURL}/${type}/${value}`).json();
 
 /**
  * Update a meetup
